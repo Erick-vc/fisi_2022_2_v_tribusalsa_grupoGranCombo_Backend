@@ -40,4 +40,9 @@ functions:
       - httpApi:
           path: /updateUser/{email}
           method: put  
-
+  deleteUser:
+    handler: src/deleteUser.deleteUser
+    events:
+      - httpApi:
+          path: /deleteUser/{email}
+          method: delete   
