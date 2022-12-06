@@ -1,0 +1,38 @@
+service: aws-lambda-moviles
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  region: us-east-1
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:*
+      Resource:
+        - arn:aws:dynamodb:us-east-1:699969168678:table/villa_apuestas_database 
+
+
+functions:
+  hello:
+    handler: src/main.hello
+    events:
+      - httpApi:
+          path: /
+          method: get
+  
+  createUser:
+    handler: src/createUser.createUser
+    events:
+      - httpApi:
+          path: /createUser
+          method: post 
+  getUser:
+    handler: src/getUser.getUserbyemail
+    events:
+      - httpApi:
+          path: /getUser/{email}
+          method: get  
+
+
+
