@@ -34,5 +34,10 @@ functions:
           path: /getUser/{email}
           method: get  
 
-
+  updateUser:
+    handler: src/updateUser.updateUserbyemail
+    events:
+      - httpApi:
+          path: /updateUser/{email}
+          method: put  
 

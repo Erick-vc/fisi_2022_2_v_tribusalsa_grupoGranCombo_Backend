@@ -18,7 +18,8 @@ const getUserbyemail = async (event) => {
 
   const result = await dynamodb.get(params, function(err, data) {
   if (err) {
-    console.error(params);
+      console.error(params);
+      console.error(data);
       console.error("Unable to read item. Error JSON:", JSON.stringify(err, null, 2));
   } else {
       // GetItem succeeded
@@ -36,6 +37,7 @@ const getUserbyemail = async (event) => {
     
   };
 };
+
 
 module.exports = {
   getUserbyemail,
